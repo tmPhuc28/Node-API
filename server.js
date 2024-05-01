@@ -16,6 +16,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use("/api/products", productRoute);
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -25,12 +26,12 @@ app.use(errorMiddleware);
 mongoose
   .connect(DATABASE_URL)
   .then(() => {
-    console.log("connected to MonggoDB");
+    console.log("connected to MongoDB");
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.log("error connecting to MonggoDB");
+    console.log("error connecting to MongoDB");
   });
