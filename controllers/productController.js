@@ -1,6 +1,14 @@
 const ProductModel = require("../models/productModel");
 const asyncHandler = require("express-async-handlr");
 
+const getProductShowUI = async (req, res) => {
+  try {
+    const products = await ProductModel.find({});
+    res.render("product", { products: products });
+  } catch (error) {
+    res.status(500);
+  }
+};
 const getProduct = async (req, res) => {
   try {
     const products = await ProductModel.find({});
@@ -10,7 +18,6 @@ const getProduct = async (req, res) => {
     throw new Error(error.message);
   }
 };
-
 const getProductByID = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -77,4 +84,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductShowUI,
 };

@@ -2,7 +2,7 @@ require("dotenv").config();
 var cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
-const productRoute = require("./routes/productRoute");
+const { router, routerUI } = require("./routes/productRoute");
 const { errorMiddleware } = require("./middleware/errorMiddleware");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,13 +13,19 @@ var corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
+app.set("view engine", "ejs");
+app.set("views", "./web");
+app.use(express.static("public"));
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/products", productRoute);
+app.use("/api/products", router);
+app.use("/ui/products", routerUI);
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  //res.send("Hello NodeJs!");
+  res.render("index");
 });
 
 app.use(errorMiddleware);
