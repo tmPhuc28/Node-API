@@ -1,3 +1,6 @@
+body{
+  background-color: azure;
+}
 h1 {
   color: #c00;
   font-family: sans-serif;
@@ -29,7 +32,7 @@ table {
 }
 .zigzag {
   border-collapse: separate;
-  border-spacing: 0.25em 1em;
+  border-spacing: 0.25em 1.5em;
   tbody tr:nth-child(odd) {
     transform: rotate(2deg);
   }
@@ -55,6 +58,9 @@ table {
   margin: 10px 0;
   text-decoration: none !important;
 }
+.fake-button:hover{
+  opacity: 0.5;
+}
 .header-title{
   display: flex;
   justify-content: space-between;
@@ -66,3 +72,30 @@ table {
 .header-button a{
   margin-right: 10px;
 }
+.body-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-func{
+  font-family: sans-serif;
+  font-weight: 700 !important;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  border: none;
+}
+.btn-func:hover{
+  opacity: 0.7;
+}
+.btn-edit{
+  background-color: #009;
+}
+.btn-del{
+  background-color: rgb(185, 0, 0);
+}
+

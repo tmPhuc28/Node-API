@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API-Product-NODEJS</title>
+    <title>Product - Node API</title>
     <base href="/">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -12,43 +12,54 @@
 <body>
     <div class="header-title">
         <h1>Product list</h1>
-        <a href="/" class="fake-button">Home</a>
+        <a href="/" class="fake-button"><i data-lucide="corner-down-right"></i></a>
     </div>
-    <table class="zigzag">
-        <thead>
-            <tr>
-                <th class="header">Name</th>
-                <th class="header">Quantity</th>
-                <th class="header">Price</th>
-                <th class="header">Decription</th>
-                <th class="header">Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for (let p of products) {%>
-
+    <div class="body-container">
+        <table class="zigzag">
+            <thead>
                 <tr>
-                    <td class="product-title">
-                        <%= p.name %>
-                    </td>
-                    <td>
-                        <%= p.quantity %>
-                    </td>
-                    <td>
-                        <%= p.price %>
-                    </td>
-                    <td>
-                        <%= p.decription %>
-                    </td>
-                    <td>
-                        <img class="product-image" src="<%= p.image %>" alt="">
-                    </td>
+                    <th class="header">Name</th>
+                    <th class="header">Quantity</th>
+                    <th class="header">Price</th>
+                    <th class="header">Description</th>
+                    <th class="header">Image</th>
+                    <th class="header">Function</th>
                 </tr>
-                <% } %>
+            </thead>
+            <tbody>
+                <% for (let p of products) {%>
 
-        </tbody>
-    </table>
+                    <tr>
+                        <td class="product-title">
+                            <%= p.name %>
+                        </td>
+                        <td>
+                            <%= p.quantity %>
+                        </td>
+                        <td>
+                            <%= p.price %>
+                        </td>
+                        <td>
+                            <%= p.description %>
+                        </td>
+                        <td>
+                            <img class="product-image" src="<%= p.image %>" alt="">
+                        </td>
+                        <td>
+                            <button class="btn-func btn-edit"><i data-lucide="file-pen-line"></i></button>
+                            <button class="btn-func btn-del" aria-placeholder="Delete"><i
+                                    data-lucide="trash-2"></i></button>
+                        </td>
+                    </tr>
+                    <% } %>
 
+            </tbody>
+        </table>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
